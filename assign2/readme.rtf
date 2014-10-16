@@ -1,0 +1,21 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 CSCI420 - Computer Graphics\
+Assignment #2 - Roller Coaster Simulation - Bach Dinh\
+\
+My program does everything that it's supposed to do. Most of the code is copied from the previous assignment for debugging purposes. The new code starts at line 262. This assignment was definitely a lot more difficult than the previous. I'll outline my process below:\
+\
+The Catmul-Rom Spline rendering process was quite easy, that is, with GL_LINES. However, rendering with rail-cross section took the most time for me. I had to create quite a lot of "struct point" variables as you can see in the first few lines of my code. Most of those variables for the current u are with the position vector, tangent vector, normal vector, and binormal vector. The next set is simply the next point, in my case, u+0.01, and its position, tangent, normal, and binormal vectors. Then, I simply rendered the rail-cross section by connecting the vertices v0-v7 as shown with the 8 glvertex3f commands in the drawSpline method. \
+\
+The ground and sky textures were very simple, as most of the code is simply copied from the class's slides. However, the sky's front, back, left, and right planes needed a little bit of calculation and experimentation. The ground is simply the bottom plane.\
+\
+The camera's orientation took me quite a bit of time fiddling around with gluLookAt and glTranslatef. I figured that I'd just move the scene around with glTranslatef for the purpose of simulating the ride. As for the LookAt and Up vectors, I figured they're the most efficient with gluLookAt. All of these cameraPos, Tangent, Normal, and BiNormal vectors are methods I followed from the tips Yijing and Professor Barbic gave.\
+\
+Unfortunately, I haven't managed to do anything spectacular (I wished that I could of) because I procrastinated until a few days before the assignment was due T_T. I'll definitely start early for the final homework.\
+\
+Extra credit: \
+I used the speed of camera equation to simulate the realistic effect of gravity. I've also derived the equation itself shown in the "DeriveSpeedOfCamera\'85" image in the zip file}
